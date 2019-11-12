@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+        .container{
+            text-align: center;
+        }
+        h1{
+            color: royalblue;
+        }
+        
+        input{
+            font-size:30px;
+            display: block;
+            margin:0 auto;
+            width:150px;
+            height: 80px;
+            background-color: slateblue;
+            margin-top:50px;
+        }
+
+        input:hover{
+            background-color: tomato;
+        }
+
+    
+
+        
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1 id="intro"></h1>
+    <img src="./image/가위바위보메인.jpeg" alt="">
+    <input type="button" value="START" onclick="game()">
+
+    <script>
+    var user = prompt("당신의 이름을 입력해주세요.")
+    document.getElementById("intro").innerHTML = "안녕 "+ user + "? <br>나랑 가위바위보 게임 할래?"
+
+    function game(){
+        var s = '가위'
+        var r = '바위'
+        var p = '보'
+
+        var answer = prompt("무엇을 내시겠습니까? (가위, 바위, 보)")
+
+        //사용자의 입력 검증하기
+        if(answer !=='가위' && answer !=='바위' && answer !== '보' ){
+            alert("가위, 바위, 보 중 하나를 입력해야 합니다!")
+        }else{
+            var com ;
+
+            //Math.random()은 0부터 1사이의 임의의 값을 리턴함
+            var rnd = Math.random();
+
+            if(rnd < 0.33){
+                com = '가위'
+            }else if(rnd < 0.66){
+                com = '바위'
+            }else{
+                com = '보'
+            }
+
+            console.log(com);
+
+             //결과 출력하기
+             switch(answer){
+                 case s :
+                    switch(com){
+                        case s :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터와 비겼습니다.');
+                        break;
+                        case r :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터에게 졌습니다.');
+                        break;
+                        default :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터를 이겼습니다.')
+                        break;
+                    }
+                break;
+                case r :
+                    switch(com){
+                        case s :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터를 이겼습니다.');
+                        break;
+                        case r :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터와 비겼습니다.');
+                        break;
+                        default :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터에게 졌습니다.')
+                        break;
+                    }
+                break;
+                case p :
+                    switch(com){
+                        case s :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터에게 졌습니다.');
+                        break;
+                        case r :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터를 이겼습니다.');
+                        break;
+                        default :
+                        alert('컴퓨터 : ' + com + ' 결과 : 컴퓨터와 비겼습니다.')
+                        break;
+                    }
+                break;
+
+             }
+        }
+
+       
+
+
+        
+
+    }
+    </script>
+
+    </div>
+</body>
+</html>
